@@ -1,0 +1,20 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.program-link.api-success::after {
+    content: " ✓";
+    color: green;
+}
+
+.program-link.api-exception::after {
+    content: " ✗";
+    color: red;
+}
+
+.program-select-popover-content {
+	margin: .5rem;
+	width: 25em;
+}
