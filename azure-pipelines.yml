@@ -1,0 +1,56 @@
+trigger:
+  branches:
+    include:
+      - trunk
+  paths:
+    exclude:
+      - azure-pipelines.yml
+pr:
+  branches:
+    include:
+      - trunk
+      - release-v*
+      - hotfix-v*
+pool:
+    vmImage: ubuntu-latest
+  
+variables:
+    phpVersion: 8.2
+steps:
+- task: Npm@1
+  inputs:
+    command: 'install'
+- task: replacetokens@3
+  inputs:
+    targetFiles: 'plugin.php'
+    encoding: 'auto'
+    writeBOM: true
+    actionOnMissing: 'warn'
+    keepToken: false
+    actionOnNoFiles: 'continue'
+    enableTransforms: false
+    tokenPrefix: '#{'
+    tokenSuffix: '}#'
+    enableRecursion: false
+    useLegacyPattern: false
+    enableTelemetry: true
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run build'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run build'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/trunk'))
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'install --omit=dev'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'bc-acalog-wordpress-blocks'
+    publishLocation: 'pipeline'
