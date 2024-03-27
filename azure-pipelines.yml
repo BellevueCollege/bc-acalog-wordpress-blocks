@@ -20,7 +20,7 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-- task: replacetokens@3
+- task: replacetokens@6
   inputs:
     targetFiles: 'plugin.php'
     encoding: 'auto'
