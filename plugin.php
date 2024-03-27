@@ -71,6 +71,27 @@ function register_block( $block_name, $dynamic = false ) {
 	}
 }
 
+/**
+ * Filter the Bellevue 2022 theme catalog link
+ *
+ * @param string $url Generic URL set by the Bellevue 2022 theme
+ * @param string $program Program Name provided by the user
+ * @return string The generated link
+ */
+function filter_b22_theme_catalog_link( $url, $program ) {
+	$API = new API(
+		api_base_url: ACALOG_BASE_API_URL,
+		api_key: ACALOG_API_KEY
+	);
+	$acalog_url = $API->get_program_link_by_name( $program );
+	if ( $acalog_url ) {
+		return $acalog_url;
+	}
+	return $url;
+}
+
+add_filter( 'bellevue2022_acalog_url', __NAMESPACE__ . '\filter_b22_theme_catalog_link', 10, 2 );
+
 
 /**
  * Register API Routes
