@@ -3,7 +3,7 @@
 	"apiVersion": 2,
 	"name": "bawb/program",
 	"version": "1.0.0",
-	"title": "Program",
+	"title": "Program Catalog Link (Degree or Certificate)",
 	"category": "embed",
 	"icon": "welcome-learn-more",
 	"description": "Include a link to the academic catalog (Acalog) that updates automatically to the latest published catalog.",

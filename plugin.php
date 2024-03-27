@@ -73,6 +73,9 @@ function register_block( $block_name, $dynamic = false ) {
 
 /**
  * Filter the Bellevue 2022 theme catalog link
+ * 
+ * The Bellevue 2022 theme uses custom ACF fields for catalog info in some places.
+ * This filter allows the plugin to use the Acalog API to get the link, and inject it into the catalog link
  *
  * @param string $url Generic URL set by the Bellevue 2022 theme
  * @param string $program Program Name provided by the user
@@ -94,7 +97,7 @@ add_filter( 'bellevue2022_acalog_url', __NAMESPACE__ . '\filter_b22_theme_catalo
 
 
 /**
- * Register API Routes
+ * Register API Routes used by the program block
  */
 add_action( 'rest_api_init', function () {
 	register_rest_route( 'bawb/v1', '/programs', array(
@@ -103,7 +106,12 @@ add_action( 'rest_api_init', function () {
 	) );
 } );
 
-
+/**
+ * Get list of programs from Acalog and return via API
+ * 
+ * @param \WP_REST_Request $request
+ * @return array
+ */
 function program_list_callback( \WP_REST_Request $request ) {
 	$API = new API(
 		api_base_url: ACALOG_BASE_API_URL,

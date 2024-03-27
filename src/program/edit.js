@@ -150,7 +150,7 @@ export default function Edit( props ) {
 				{ ! selectedProgram &&
 					<Card>
 						<CardBody>
-							Select a degree/certificate to display
+							Select a degree/certificate to display using the button in the toolbar.
 						</CardBody>
 					</Card>
 				}
