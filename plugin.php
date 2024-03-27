@@ -98,7 +98,7 @@ function program_list_callback( \WP_REST_Request $request ) {
 			];
 		}, $programs );
 
-		return array_values( $programs ); !!
+		return array_values( $programs );
 	}
 	return $programs;
 }
