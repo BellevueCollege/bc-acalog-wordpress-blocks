@@ -17,6 +17,7 @@
 /wp-*.php
 /xmlrpc.php
 
+
 # Configuration
 wp-config.php
 
@@ -46,3 +47,5 @@ wp-config.php
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 #/wp-content/themes
+node_modules
+build
