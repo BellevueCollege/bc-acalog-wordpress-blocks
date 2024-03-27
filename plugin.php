@@ -5,7 +5,7 @@
  * Description: Unofficial WordPress blocks to integrate Acalog with WordPress.
  * Author: BC Integration (Taija)
  * Author URI: https://www.bellevuecollege.edu
- * Version: 0.0.0 #{versionStamp}#
+ * Version: 0.0.0 - BETA 1 #{versionStamp}#
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
@@ -84,9 +84,9 @@ add_action( 'rest_api_init', function () {
 
 
 function program_list_callback( \WP_REST_Request $request ) {
-	$API = new API( 
-		api_base_url: ACALOG_BASE_API_URL, 
-		api_key: ACALOG_API_KEY 
+	$API = new API(
+		api_base_url: ACALOG_BASE_API_URL,
+		api_key: ACALOG_API_KEY
 	);
 	$programs = $API->get_all_programs();
 
@@ -98,7 +98,7 @@ function program_list_callback( \WP_REST_Request $request ) {
 			];
 		}, $programs );
 
-		return array_values( $programs );
+		return array_values( $programs ); !!
 	}
 	return $programs;
 }
