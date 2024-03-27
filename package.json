@@ -1,6 +1,6 @@
 {
-  "name": "mayflower-blocks",
-  "version": "3.4.0",
+  "name": "bc-acalog-wordpress-blocks",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "wp-scripts build",
@@ -19,9 +19,5 @@
   },
   "devDependencies": {
     "@wordpress/scripts": "^26.0.0"
-  },
-  "dependencies": {
-    "imagesloaded": "^5.0.0",
-    "masonry-layout": "^4.2.2"
   }
 }
