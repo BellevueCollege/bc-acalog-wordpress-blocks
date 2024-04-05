@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "bawb/program",
+	"version": "1.0.0",
+	"title": "Program Catalog Link (Degree or Certificate)",
+	"category": "embed",
+	"icon": "welcome-learn-more",
+	"description": "Include a link to the academic catalog (Acalog) that updates automatically to the latest published catalog.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "bawb",
+	"attributes": {
+		"selectedProgram": {
+			"type": "string",
+			"default": ""
+		},
+		"linkText": {
+			"type": "string",
+			"default": ""
+		},
+		"headingTag": {
+			"type": "string",
+			"default": "h2"
+		}
+	},
+	"example": {
+		"attributes": {
+			"program_name": "Applied Accounting, BAS",
+			"headingTag": "h2"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

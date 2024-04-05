@@ -1,0 +1,9 @@
+.logged-in.program-link.api-success::after {
+    content: " ✓";
+    color: green;
+}
+
+.logged-in.program-link.api-exception::after {
+    content: " ✗";
+    color: red;
+}
