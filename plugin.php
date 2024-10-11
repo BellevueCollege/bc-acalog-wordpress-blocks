@@ -103,6 +103,7 @@ add_action( 'rest_api_init', function () {
 	register_rest_route( 'bawb/v1', '/programs', array(
 		'methods' => 'GET',
 		'callback' => __NAMESPACE__ . '\program_list_callback',
+		'permission_callback' => '__return_true',
 	) );
 } );
 
