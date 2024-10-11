@@ -163,7 +163,7 @@ export default function Edit( props ) {
 					</Card>
 				}
 				{ selectedProgram &&
-					<Tag>
+					<Tag className="bawb-program-link-wrapper">
 						<RichText
 							tagName="a"
 							value={ linkText }
