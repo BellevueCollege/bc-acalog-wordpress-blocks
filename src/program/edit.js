@@ -43,6 +43,7 @@ export default function Edit( props ) {
 		linkText,
 		headingTag,
 		_headingTagOverride,
+		_linkTextOverride,
 	}, setAttributes, isSelected } = props;
 
 	// Set the heading tag based on the tag override (if set)
@@ -96,7 +97,9 @@ export default function Edit( props ) {
 									setAttributes( { selectedProgram: selectedProgram } );
 									programs.find( ( program ) => {
 										if ( program.value === selectedProgram ) {
-											setAttributes( { linkText: program.label } );
+											setAttributes( {
+												linkText: _linkTextOverride || program.label
+											} );
 										}
 									})
 								}}

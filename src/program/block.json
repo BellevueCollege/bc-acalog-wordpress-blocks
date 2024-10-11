@@ -27,6 +27,10 @@
 		"_headingTagOverride": {
 			"type": "string",
 			"default": null
+		},
+		"_linkTextOverride": {
+			"type": "string",
+			"default": null
 		}
 	},
 	"example": {
