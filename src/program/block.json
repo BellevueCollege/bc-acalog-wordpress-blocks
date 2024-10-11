@@ -23,11 +23,15 @@
 		"headingTag": {
 			"type": "string",
 			"default": "h2"
+		},
+		"_headingTagOverride": {
+			"type": "string",
+			"default": null
 		}
 	},
 	"example": {
 		"attributes": {
-			"program_name": "Applied Accounting, BAS",
+			"selectedProgram": "Applied Accounting, BAS",
 			"headingTag": "h2"
 		}
 	},
