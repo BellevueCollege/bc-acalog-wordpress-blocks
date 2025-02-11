@@ -42,7 +42,14 @@ export default function Edit( props ) {
 		selectedProgram,
 		linkText,
 		headingTag,
+		_headingTagOverride,
+		_linkTextOverride,
 	}, setAttributes, isSelected } = props;
+
+	// Set the heading tag based on the tag override (if set)
+	if ( _headingTagOverride && _headingTagOverride !== headingTag ) {
+		setAttributes( { headingTag: _headingTagOverride } );
+	}
 
 	const Tag = headingTag;
 
@@ -90,7 +97,9 @@ export default function Edit( props ) {
 									setAttributes( { selectedProgram: selectedProgram } );
 									programs.find( ( program ) => {
 										if ( program.value === selectedProgram ) {
-											setAttributes( { linkText: program.label } );
+											setAttributes( {
+												linkText: _linkTextOverride || program.label
+											} );
 										}
 									})
 								}}
@@ -105,13 +114,15 @@ export default function Edit( props ) {
 	return (
 		<>
 			<BlockControls>
-				<ToolbarGroup>
-					<ToolbarBootstrapHeadingLevelSelector
-						values = { [ 'Heading 2', 'Heading 3', 'Heading 4', 'Heading 5', 'Heading 6', 'Paragraph' ] }
-						active = { headingTag }
-						onClick = { ( newLevel ) => { setAttributes( { headingTag: newLevel } ) } }
-					/>
-				</ToolbarGroup>
+				{ ! _headingTagOverride && (
+					<ToolbarGroup>
+						<ToolbarBootstrapHeadingLevelSelector
+							values = { [ 'Heading 2', 'Heading 3', 'Heading 4', 'Heading 5', 'Heading 6', 'Paragraph' ] }
+							active = { headingTag }
+							onClick = { ( newLevel ) => { setAttributes( { headingTag: newLevel } ) } }
+						/>
+					</ToolbarGroup>
+				) }
 				<ToolbarGroup>
 					<ProgramSelectPopover />
 				</ToolbarGroup>
@@ -155,7 +166,7 @@ export default function Edit( props ) {
 					</Card>
 				}
 				{ selectedProgram &&
-					<Tag>
+					<Tag className="bawb-program-link-wrapper">
 						<RichText
 							tagName="a"
 							value={ linkText }

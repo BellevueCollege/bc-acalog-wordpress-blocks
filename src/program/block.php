@@ -19,5 +19,5 @@ function program_callback( $attributes ) {
     $link_text = $attributes['linkText'];
 
     // Return the link
-	return "<{$attributes['headingTag']}><a class='program-link $success' href='$link'>{$link_text}</a></{$attributes['headingTag']}>";
+	return "<{$attributes['headingTag']} class='bawb-program-link-wrapper'><a class='program-link $success' href='$link'>{$link_text}</a></{$attributes['headingTag']}>";
 }
