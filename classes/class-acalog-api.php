@@ -54,7 +54,7 @@ class API {
             $url = $this->get_base_url( '/content') . '&format=xml&method=getCatalogs';
 
             // Load XML
-            $xml = simplexml_load_file( "$url" ) or throw( new Exception( "Error: Cannot load Catalog XML" ) );
+            $xml = simplexml_load_file( "$url" ) or throw( new \Exception( "Error: Cannot load Catalog XML" ) );
 
             // Get Active Catalog
             foreach ( $xml[0]->catalog  as $catalog ) {
@@ -93,7 +93,7 @@ class API {
             $url = $this->get_base_url( '/search/programs') . "&format=xml&method=listing&catalog=$catalog_id&options[sort]=alpha&options[limit]=0";
 
             // Load XML
-            $xml = simplexml_load_file( "$url" ) or throw ( new Exception( "Error: Cannot load Program XML" ) );
+            $xml = simplexml_load_file( "$url" ) or throw ( new \Exception( "Error: Cannot load Program XML" ) );
 
             // Get Active Programs
             $programs = [];
@@ -127,7 +127,7 @@ class API {
             $catalog_id = $catalog_id ?? $this->get_active_catalog_id();
             $program_name_encoded = esc_attr( "$program_name" );
             $url = $this->get_base_url( '/search/programs') . "&format=xml&method=search&catalog=$catalog_id&query=$program_name_encoded&options[sort]=rank&options[limit]=10";
-            $xml = simplexml_load_file( "$url" ) or throw ( new Exception( "Error: Cannot load Program XML" ) );
+            $xml = simplexml_load_file( "$url" ) or throw ( new \Exception( "Error: Cannot load Program XML" ) );
 
             foreach ( $xml[0]->search->results->result  as $program ) {
                 if ( $program->name == $program_name ) {
@@ -145,7 +145,7 @@ class API {
         }
 
         // Error if no program found
-        throw new Exception( "Error: Program not found" );
+        throw new \Exception( "Error: Program not found" );
     }
 
     /**
@@ -169,7 +169,7 @@ class API {
             return $programs[sanitize_title($program_name)]['id'];
         }
 
-        throw new Exception( "Error: Program not found" );
+        throw new \Exception( "Error: Program not found" );
     }
 
     /**
