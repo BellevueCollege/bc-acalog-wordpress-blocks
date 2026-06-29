@@ -5,7 +5,7 @@
  * Description: Unofficial WordPress blocks to integrate Acalog with WordPress.
  * Author: BC Integration (Taija)
  * Author URI: https://www.bellevuecollege.edu
- * Version: 1.2 #{versionStamp}#
+ * Version: 1.3 #{versionStamp}#
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
