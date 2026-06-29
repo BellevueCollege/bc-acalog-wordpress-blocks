@@ -93,6 +93,7 @@ export default function Edit( props ) {
 								label="Select Degree/Certificate"
 								value={ selectedProgram }
 								options={ programs }
+								__next40pxDefaultSize = { true }
 								onChange={ ( selectedProgram ) => {
 									setAttributes( { selectedProgram: selectedProgram } );
 									programs.find( ( program ) => {
@@ -134,6 +135,7 @@ export default function Edit( props ) {
 							label="Select Degree/Certificate"
 							value={ selectedProgram }
 							options={ programs }
+							__next40pxDefaultSize = { true }
 							onChange={ ( selectedProgram ) => {
 								setAttributes( { selectedProgram: selectedProgram } );
 								programs.find( ( program ) => {
@@ -152,6 +154,7 @@ export default function Edit( props ) {
 							onChange={ ( linkText ) => {
 								setAttributes( { linkText: linkText } );
 							} }
+							__next40pxDefaultSize = { true }
 						/>
 					</PanelRow>
 				</PanelBody>
